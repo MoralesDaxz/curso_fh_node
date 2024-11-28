@@ -1,6 +1,6 @@
 import { getPokemonById } from "../../src/js-foundation/06-promises";
 
-test("Get pokeon by id should return a pokemon", async () => {
+test("Get pokemon by id should return a pokemon", async () => {
     const pokemonId = 1
     const pokemonName = await getPokemonById(pokemonId)
     expect(pokemonName).toBe("bulbasaur")
