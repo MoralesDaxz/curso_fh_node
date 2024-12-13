@@ -24,7 +24,6 @@ export const yarg = yargs(hideBin(process.argv))
     if (argv.b < 1) throw "Base must be a number > 0";
     if (argv.l < 10) throw "Base must be a number < || = 10";
 
-
     return true;
   })
   .parseSync();

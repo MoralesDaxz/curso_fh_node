@@ -1,23 +1,13 @@
-import { yarg as argv } from "./config/plugins/args.plugin";
-
-/* console.log("process", process.argv);
-
-console.log("argv", argv.b); */
-
-/* 
-const [tsnode, app, ...args] = process.argv;
-console.log(args);
- */
+import { yarg } from "./config/plugins/args.plugin";
+import { ServerApp } from "./presentation/server.app";
 
 (async () => {
   await main();
-  /* console.log("Fin ejecucion -2"); */
 })();
 
 async function main() {
+  const { b: base, l: limit, s: showTable } = yarg;
   /* console.log("Se ejecuta -> main - 1"); */
-  console.log(argv);
- 
-  
-  
+
+  ServerApp.run({ base, limit, showTable });
 }
