@@ -11,16 +11,24 @@ interface RunOptions {
   fileName: string;
 }
 export class ServerApp {
-  static run({ base, limit, showTable, fileDestination, fileName }: RunOptions) {
+  static run({
+    base,
+    limit,
+    showTable,
+    fileDestination,
+    fileName,
+  }: RunOptions) {
     console.log("Server run... \n");
     const table = new CreateTable().execute({ base, limit });
     const wasCreated = new SaveFile().execute({
       fileContent: table,
       fileDestination: fileDestination,
-      fileName: fileName
+      fileName: fileName,
+      base: base,
     });
     showTable ? console.log(table) : null;
-    wasCreated ? console.log("File created") : console.log("Error creating file");
-
+    wasCreated
+      ? console.log("File created")
+      : console.log("Error creating file");
   }
 }
