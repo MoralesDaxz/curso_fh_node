@@ -13,15 +13,12 @@ export class CreateTable implements CreateTableUseCase {
 
   execute({ base, limit = 10 }: CreateTableOptions) {
     const line = "=======================";
-    let message = `
- ${line}
- Tabla de Multiplicar -> ${base}
- ${line}`;
+    let message = "";
     for (let i = 1; i <= limit; i++) {
-      message += `\n ${base} * ${i} = ${base * i}`;
       if (i === limit) {
-        message += `\n${line}\n`;
+        return (message += `${base} * ${i} = ${base * i}`);
       }
+      message += `${base} * ${i} = ${base * i}\n`;
     }
     return message;
   }
